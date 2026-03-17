@@ -23,7 +23,8 @@ Store your Spira API Key as a GitHub Secret so it is never exposed in workflow f
 ```yaml
 - uses: Inflectra/rapiselauncher-win-action@v1
   with:
-    spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
+    spira_url: 'https://myserver.spiraservice.net/'
+    spira_test_set_id: '925,1266'
     spira_username: 'myuser'
     spira_api_key: ${{ secrets.SPIRA_API_KEY }}
     spira_automation_host: GHA
