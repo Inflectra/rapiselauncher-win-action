@@ -150,6 +150,11 @@ runs:
         New-Item -ItemType Directory -Path $artifactDir -Force
         Copy-Item "$env:RUNNER_TEMP\screenshot-before.png" $artifactDir -ErrorAction SilentlyContinue
         Copy-Item "$env:RUNNER_TEMP\screenshot-after.png" $artifactDir -ErrorAction SilentlyContinue
+        # Copy the JUnit XML report
+        $reportPath = "${{ inputs.report }}"
+        if ($reportPath -and (Test-Path $reportPath)) {
+          Copy-Item $reportPath $artifactDir -ErrorAction SilentlyContinue
+        }
         if (Test-Path "C:\ProgramData\Inflectra\Rapise\Logs") {
           Copy-Item "C:\ProgramData\Inflectra\Rapise\Logs\*" $artifactDir -Recurse -ErrorAction SilentlyContinue
         }
