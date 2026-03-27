@@ -22,7 +22,7 @@ inputs:
   spira_api_key:
     description: 'Spira API key (RSS Token). Not needed if spira_config is set.'
     required: true
-    default: '${{ secrets.SPIRA_API_KEY }}'
+    default: '{00000000-0000-0000-0000-000000000000}'
   spira_project_id:
     description: 'Spira Product/Project ID. Optional.'
     required: false
@@ -79,6 +79,10 @@ inputs:
     description: 'Path to Git project (for Spira tests stored in Git)'
     required: false
     default: ''
+  report:
+    description: 'Path to file for JUnit XML results output'
+    required: false
+    default: 'rapise-test-results.xml'
 
 runs:
   using: 'composite'
@@ -122,6 +126,7 @@ runs:
         INPUT_RECORD_VIDEO_OPTIONS: ${{ inputs.record_video_options }}
         INPUT_TIMEOUT_MINUTES: ${{ inputs.timeout_minutes }}
         INPUT_GIT_ROOT: ${{ inputs.git_root }}
+        INPUT_REPORT: ${{ inputs.report }}
 
     - name: Screenshot after Rapise
       if: always() && inputs.capture_screenshots == 'true'
