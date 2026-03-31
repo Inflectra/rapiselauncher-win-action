@@ -71,6 +71,7 @@ try {
     $timeoutMinutes = 0
     if ($env:INPUT_TIMEOUT_MINUTES) { $timeoutMinutes = [int]$env:INPUT_TIMEOUT_MINUTES }
     $gitRoot = $env:INPUT_GIT_ROOT
+    $report = $env:INPUT_REPORT
 
     Write-Host "spiraProjectId: $spiraProjectId"
     Write-Host "spiraTestSetId: $spiraTestSetId"
@@ -153,6 +154,10 @@ try {
     if ($recordVideo) {
         $ArgumentList += "-param:g_enableVideoRecording=true"
         $ArgumentList += "-param:g_videoRecorderArguments=$recordVideoOptions"
+    }
+
+    if ($report) {
+        $ArgumentList += "-report:$report"
     }
 
     $ArgumentListStr = '"' + ($ArgumentList -join '" "') + '"'
