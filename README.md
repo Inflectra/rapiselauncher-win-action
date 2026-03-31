@@ -21,7 +21,7 @@ Store your Spira API Key as a GitHub Secret so it is never exposed in workflow f
 ## Quick Start
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/'
     spira_test_set_id: '925,1266'
@@ -48,7 +48,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Inflectra/rapiselauncher-win-action@v1
+      - uses: Inflectra/rapiselauncher-win-action@v2
         with:
           spira_config: '${{ github.workspace }}/RepositoryConnection.xml'
           spira_test_set_id: '925,1266'
@@ -75,7 +75,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Inflectra/rapiselauncher-win-action@v1
+      - uses: Inflectra/rapiselauncher-win-action@v2
         with:
           spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
           spira_username: 'myuser'
@@ -88,7 +88,7 @@ jobs:
 Record a video of the test execution and upload it to the Spira Test Run:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
     spira_username: 'myuser'
@@ -104,7 +104,7 @@ The default `record_video_options` are `-noaudio -bitRate 512 -frameRate 2`. Adj
 Set a custom screen resolution for the runner before test execution:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
     spira_username: 'myuser'
@@ -119,7 +119,7 @@ Set a custom screen resolution for the runner before test execution:
 Combine both features for full desktop UI test coverage:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
     spira_username: 'myuser'
@@ -143,7 +143,7 @@ capture_screenshots: 'false'
 Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     spira_url: 'https://myserver.spiraservice.net/9/TestSet/925.aspx'
     spira_username: 'myuser'
@@ -154,7 +154,7 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 ### Specifying Rapise Version
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     rapise_version: '9.0.35.20'
     # ... other inputs
@@ -165,7 +165,7 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 If your Rapise tests are stored in a Git repository connected to Spira, the action automatically sets `GITROOT` to `$GITHUB_WORKSPACE`. Override it with `git_root` if needed:
 
 ```yaml
-- uses: Inflectra/rapiselauncher-win-action@v1
+- uses: Inflectra/rapiselauncher-win-action@v2
   with:
     git_root: '${{ github.workspace }}/tests'
     # ... other inputs
