@@ -45,7 +45,7 @@ try {
     # Parse project ID and test set ID from spira_url if it contains the full path
     # Full form: https://server/9/TestSet/925.aspx
     # Short form: https://server/ (requires explicit project_id and test_set_id)
-    if ($spiraUrl -match '^(https?://.+?)/(\d+)/TestSet/(\d+)\.aspx$') {
+    if ($spiraUrl -match '^(https?://.+?)/+(\d+)/TestSet/(\d+)\.aspx$') {
         $spiraUrl = $Matches[1] + '/'
         if (-not $spiraProjectId) { $spiraProjectId = $Matches[2] }
         if (-not $spiraTestSetId) { $spiraTestSetId = $Matches[3] }
