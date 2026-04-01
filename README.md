@@ -165,7 +165,7 @@ Use `timeout_minutes` to kill the launcher if it exceeds the specified duration:
 ```yaml
       - uses: Inflectra/rapiselauncher-win-action@v2
         with:
-          rapise_version: '9.0.35.20'
+          rapise_version: '9.0.35.37'
           # ... other inputs
 ```
 
@@ -200,7 +200,7 @@ upload_artifacts: 'false'
 | `spira_test_set_id` | | Test Set ID(s), comma-separated (e.g. `925,1266`). |
 | `spira_automation_host` | *(hostname)* | Automation Host Token. Defaults to runner hostname. |
 | `install_rapise` | `true` | Whether to install Rapise. |
-| `rapise_version` | `9.0.35.20` | Rapise version to install. |
+| `rapise_version` | `9.0.35.37` | Rapise version to install. |
 | `set_screen_size` | `false` | Set screen resolution before execution. |
 | `screen_width` | `1920` | Screen width (1024–7680). |
 | `screen_height` | `1080` | Screen height (768–4320). |
